@@ -1,6 +1,5 @@
-# CsMapPicker
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
+# CS-Map-Picker
+A little home-made project for convenient map picking in the CS GO
 
 ## Development server
 
