@@ -1,3 +1,5 @@
-#app{
+#app {
+  margin: 0;
   background-color: dimgray;
+  height: 800px;
 }

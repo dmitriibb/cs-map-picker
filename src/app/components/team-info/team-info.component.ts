@@ -7,12 +7,14 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TeamInfoComponent implements OnInit {
 
-  @Input()
-  teamName = 'team name';
+  @Input() teamName = 'team name';
+
+  @Input() selectedMaps = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedMaps.push({name: 'map name', logo: 'assets/maps/placeholder_map.png'});
   }
 
 }

@@ -1,0 +1,12 @@
+<div class="row no-gutters">
+  <div class="col">
+    <input type="text" pInputText [(ngModel)]="team1"/>
+  </div>
+  <div class="col">
+    <input type="text" pInputText [(ngModel)]="team2"/>
+  </div>
+</div>
+
+<div>
+  <p-multiSelect [options]="mapsAll" [(ngModel)]="mapsSelected" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+</div>

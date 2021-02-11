@@ -1,1 +1,15 @@
-<h3>{{teamName}}</h3>
+<br>
+<p-card [header]="teamName" styleClass="ui-card-shadow">
+  <p-header>
+    <img class="teamLogo" src="assets/teams/placeholder_owl.png">
+  </p-header>
+
+  <div *ngFor="let map of selectedMaps">
+    <p-card [header]="map.name" styleClass="ui-card-shadow">
+      <p-header>
+        <img class="mapLogo" [src]="map.logo">
+      </p-header>
+    </p-card>
+  </div>
+
+</p-card>
