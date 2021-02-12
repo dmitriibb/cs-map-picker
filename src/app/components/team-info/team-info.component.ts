@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {TeamModel} from '../../model/team.model';
+import {MapModel} from '../../model/map.model';
+import {MAP_LOGO_PLACEHOLDER, TEAM_LOGO_PLACEHOLDER} from '../../core/constants';
 
 @Component({
   selector: 'team-info',
@@ -7,14 +10,14 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TeamInfoComponent implements OnInit {
 
-  @Input() teamName = 'team name';
+  @Input() team: TeamModel;
 
-  @Input() selectedMaps = [];
+  selectedMaps: MapModel[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.selectedMaps.push({name: 'map name', logo: 'assets/maps/placeholder_map.png'});
+
   }
 
 }

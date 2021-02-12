@@ -1,12 +1,24 @@
-<div class="row no-gutters">
-  <div class="col">
-    <input type="text" pInputText [(ngModel)]="team1"/>
+<p-card header="Teams" styleClass="ui-card-shadow">
+  <div class="row no-gutters">
+    <div class="col">
+      <input placeholder="team1" type="text" pInputText [(ngModel)]="team1"/>
+    </div>
+    <div class="col">
+      <input placeholder="team2" type="text" pInputText [(ngModel)]="team2"/>
+    </div>
   </div>
-  <div class="col">
-    <input type="text" pInputText [(ngModel)]="team2"/>
-  </div>
-</div>
+</p-card>
 
-<div>
-  <p-multiSelect [options]="mapsAll" [(ngModel)]="mapsSelected" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
-</div>
+<p-card header="Maps" styleClass="ui-card-shadow">
+  <div>
+    <p-multiSelect placeholder="maps" [options]="mapsAll" [(ngModel)]="mapsSelected" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+  </div>
+</p-card>
+
+<p-card header="Best of" styleClass="ui-card-shadow">
+  <div>
+    <p-dropdown  [options]="bestOfAll" [(ngModel)]="bestOfSelected" [panelStyle]="{minWidth:'12em'}"></p-dropdown >
+  </div>
+</p-card>
+<p-button label="Apply" (onClick)="applyConfig($event)"></p-button>
+

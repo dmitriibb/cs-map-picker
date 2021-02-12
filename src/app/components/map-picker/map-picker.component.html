@@ -3,12 +3,20 @@
   <div class="row no-gutters">
 
     <div class="col team">
-      <team-info [teamName]="teamLeft"
+      <team-info [team]="teamLeft"
       ></team-info>
     </div>
-    <div class="col-8 maps"> 2 </div>
+
+    <div class="col-8 maps">
+      <div *ngFor="let map of maps">
+        <p-card [header]="map.name">
+          <img class="mapLogoImg" [src]="map.logo">
+        </p-card>
+      </div>
+    </div>
+
     <div class="col team">
-      <team-info [teamName]="teamRight">
+      <team-info [team]="teamRight">
       </team-info>
     </div>
 

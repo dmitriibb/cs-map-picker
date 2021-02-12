@@ -1,13 +1,13 @@
 <br>
-<p-card [header]="teamName" styleClass="ui-card-shadow">
+<p-card [header]="team.name" styleClass="ui-card-shadow">
   <p-header>
-    <img class="teamLogo" src="assets/teams/placeholder_owl.png">
+    <img class="teamLogoImg" [src]="team.logo">
   </p-header>
 
   <div *ngFor="let map of selectedMaps">
     <p-card [header]="map.name" styleClass="ui-card-shadow">
       <p-header>
-        <img class="mapLogo" [src]="map.logo">
+        <img class="mapLogoImg" [src]="map.logo">
       </p-header>
     </p-card>
   </div>

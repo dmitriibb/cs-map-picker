@@ -11,6 +11,9 @@ import {InputTextModule} from 'primeng/inputtext';
 import {FormsModule} from '@angular/forms';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DropdownModule} from 'primeng/dropdown';
+import {ButtonModule} from 'primeng/button';
+import { MainComponent } from './components/main/main.component';
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     MapPickerComponent,
     TeamInfoComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextModule,
     FormsModule,
     MultiSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DropdownModule,
+    ButtonModule
 
   ],
   providers: [],
