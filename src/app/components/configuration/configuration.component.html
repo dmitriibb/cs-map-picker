@@ -24,6 +24,7 @@
 <p-card header="Maps" styleClass="ui-card-shadow">
   <div>
     <p-multiSelect placeholder="maps" [options]="mapsAll" [(ngModel)]="mapsSelected" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+    <input id="maps-upload" type="file" (change)="mapsInput($event)" multiple>
   </div>
 </p-card>
 

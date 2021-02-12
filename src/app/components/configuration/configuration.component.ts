@@ -51,14 +51,8 @@ export class ConfigurationComponent implements OnInit {
   }
 
   applyConfig(event) {
-    const maps = this.mapsSelected.map(m => {
-      const map = new MapModel();
-      map.name = m;
-      map.logo = MAP_LOGO_PLACEHOLDER;
-      return map;
-    })
     const config = new SessionConfig();
-    config.maps = maps;
+    config.maps = [...this.mapsSelected];
     config.bestOf = this.bestOfSelected;
 
     const team1 = new TeamModel()
@@ -95,8 +89,7 @@ export class ConfigurationComponent implements OnInit {
 
   private readFile(event, callback: Function): any {
     const files = event.files;
-    if (files.length === 0)
-      return;
+    if (!files.length) return;
 
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
@@ -107,9 +100,38 @@ export class ConfigurationComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      const url = reader.result;
-      callback(url.toString());
+      const data = reader.result.toString();
+      callback(data);
     }
+  }
+
+  mapsInput(event) {
+    this.uploadMapFiles(event);
+  }
+
+  private uploadMapFiles(event) {
+    const files = event.target.files;
+    if (!files.length) return;
+
+    const mapList = [];
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = (_event) => {
+        const newMap = new MapModel();
+        newMap.name = this.truncFileName(file.name);
+        newMap.logo = reader.result.toString();
+        mapList.push({label:newMap.name, value: newMap});
+      }
+
+    }
+    this.mapsAll = mapList;
+  }
+
+  private truncFileName(fileName: string): string {
+    return fileName.substring(0, fileName.lastIndexOf('.'));
   }
 
 }
