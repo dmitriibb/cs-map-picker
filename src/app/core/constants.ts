@@ -27,3 +27,6 @@ export const TAB_MAP_PICKER = 'mapPicker';
 export const TEAM_LOGO_PLACEHOLDER = 'assets/teams/placeholder_owl.png';
 export const MAP_LOGO_PLACEHOLDER = 'assets/maps/placeholder_map.png';
 
+export const TEAM_1_LOGO = 'team1Logo';
+export const TEAM_2_LOGO = 'team2Logo';
+

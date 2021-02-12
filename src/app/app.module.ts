@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DropdownModule} from 'primeng/dropdown';
 import {ButtonModule} from 'primeng/button';
 import { MainComponent } from './components/main/main.component';
+import {FileUploadModule} from 'primeng/fileupload';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { MainComponent } from './components/main/main.component';
     MultiSelectModule,
     BrowserAnimationsModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    FileUploadModule,
+    HttpClientModule
 
   ],
   providers: [],
