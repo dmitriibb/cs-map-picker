@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SessionConfig} from '../../model/session.config.model';
 import {TeamModel} from '../../model/team.model';
 import {MapModel} from '../../model/map.model';
-import {MAP_LOGO_PLACEHOLDER, TEAM_LOGO_PLACEHOLDER} from '../../core/constants';
+import {BEST_OF_1, MAP_LOGO_PLACEHOLDER, TEAM_LOGO_PLACEHOLDER} from '../../core/constants';
 import {AppStateService} from '../../service/app-state.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class MapPickerComponent implements OnInit {
   teamLeft: TeamModel;
   teamRight: TeamModel;
   maps: MapModel[];
+  bestOf = '';
 
   constructor(private appStateService: AppStateService) {
     this.appStateService.subscribeSessionConfig().subscribe(next => this.setSessionConfig(next));
@@ -30,6 +31,7 @@ export class MapPickerComponent implements OnInit {
     this.teamLeft = newConfig.team1;
     this.teamRight = newConfig.team2;
     this.maps = newConfig.maps;
+    this.bestOf = newConfig.bestOf;
   }
 
   placeHolderConfig(): SessionConfig {

@@ -1,4 +1,4 @@
-export const TEAM_LOGO_PLACEHOLDER = 'assets/teams/placeholder_owl.png';
+export const TEAM_LOGO_PLACEHOLDER = 'assets/teams/image-placeholder.jpg';
 export const MAP_LOGO_PLACEHOLDER = 'assets/maps/placeholder_map.png';
 
 export const MAP_LIST = [

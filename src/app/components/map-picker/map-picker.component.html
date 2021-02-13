@@ -1,14 +1,24 @@
 <div style="padding: 1em">
 
+  <div id="map-picker-header">
+    <div class="row no-gutters">
+
+      <div class="col">
+        {{bestOf}}
+      </div>
+
+
+    </div>
+  </div>
+
   <div class="row no-gutters">
 
     <div class="col team">
-      <team-info [team]="teamLeft"
-      ></team-info>
+      <team-info [team]="teamLeft"></team-info>
     </div>
 
     <div class="col-8 maps">
-      <div *ngFor="let map of maps">
+      <div class="mapDiv" *ngFor="let map of maps">
         <p-card [header]="map.name">
           <img class="mapLogoImg" [src]="map.logo">
         </p-card>
@@ -16,8 +26,7 @@
     </div>
 
     <div class="col team">
-      <team-info [team]="teamRight">
-      </team-info>
+      <team-info [team]="teamRight"></team-info>
     </div>
 
   </div>

@@ -2,18 +2,18 @@
   <div class="row no-gutters">
     <div class="col">
       <input placeholder="team1" type="text" pInputText [(ngModel)]="team1"/>
-      <div class="image-upload">
+      <div class="image-upload-team">
         <label for="team1LogoInput">
-          <img style="cursor:pointer" class="teamLogoImg temLogoChooser" [src]="team1Logo">
+          <img style="cursor:pointer" class="teamLogoImg teamLogoChooser" [src]="team1Logo">
         </label>
         <input id="team1LogoInput" type="file" accept="image/*" (change)="team1LogoInput($event)" />
       </div>
     </div>
     <div class="col">
       <input placeholder="team2" type="text" pInputText [(ngModel)]="team2"/>
-      <div class="image-upload">
+      <div class="image-upload-team">
         <label for="team2LogoInput">
-          <img style="cursor:pointer" class="teamLogoImg temLogoChooser" [src]="team2Logo">
+          <img style="cursor:pointer" class="teamLogoImg teamLogoChooser" [src]="team2Logo">
         </label>
         <input id="team2LogoInput" type="file" accept="image/*" (change)="team2LogoInput($event)" />
       </div>
@@ -24,7 +24,12 @@
 <p-card header="Maps" styleClass="ui-card-shadow">
   <div>
     <p-multiSelect placeholder="maps" [options]="mapsAll" [(ngModel)]="mapsSelected" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
-    <input id="maps-upload" type="file" (change)="mapsInput($event)" multiple>
+    <div class="image-upload-maps">
+      <label for="mapsInput">
+        <div class="mapsUploadBtn">upload</div>
+      </label>
+      <input id="mapsInput" type="file" accept="image/*" (change)="mapsInput($event)" multiple>
+    </div>
   </div>
 </p-card>
 

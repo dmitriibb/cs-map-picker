@@ -1,3 +1,14 @@
-.temLogoChooser{
+.teamLogoChooser{
   margin: 0;
+}
+
+.mapsUploadBtn {
+  width: fit-content;
+  height: 30px;
+  background-color: #b9dbaf;
+  display: inline-block;
+  border-radius: 3px;
+  margin: 20px;
+  padding: 5px;
+  text-align: center;
 }

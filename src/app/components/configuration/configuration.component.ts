@@ -127,6 +127,7 @@ export class ConfigurationComponent implements OnInit {
       }
 
     }
+    this.mapsSelected = [];
     this.mapsAll = mapList;
   }
 

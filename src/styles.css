@@ -8,14 +8,23 @@
   object-fit: contain;
 }
 .mapLogoImg{
-  width: 150px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+
 }
 
-.image-upload>input {
+.image-upload-maps {
+  display: inline-block;
+}
+
+.image-upload-maps>input {
+  display: none;
+}
+
+.image-upload-team>input {
   display: none;
 }
 
