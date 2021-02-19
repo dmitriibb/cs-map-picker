@@ -1,13 +1,10 @@
-<div style="padding: 1em">
+<div class="map-picker-container">
 
   <div id="map-picker-header">
     <div class="row no-gutters">
-
-      <div class="col">
-        {{bestOf}}
-      </div>
-
-
+      <div class="col map-picker-header-status">Mode: {{bestOf}}</div>
+      <div class="col map-picker-header-status">Team: {{currentTeam.name}}</div>
+      <div class="col map-picker-header-status">Action: {{currentAction}}</div>
     </div>
   </div>
 
@@ -17,11 +14,15 @@
       <team-info [team]="teamLeft"></team-info>
     </div>
 
-    <div class="col-8 maps">
-      <div class="mapDiv" *ngFor="let map of maps">
-        <p-card [header]="map.name">
-          <img class="mapLogoImg" [src]="map.logo">
-        </p-card>
+    <div class="col-6 map-grid">
+      <div *ngFor="let map of maps"
+           class="map-cell" [ngClass]="{'map-picked':map.picked, 'map-banned':map.banned}" (click)="mapCardClick($event, map)">
+        <div class="map-cell-card">
+          <p-card [header]="map.name" >
+            <img class="map-logo-picker" [src]="map.logo" [alt]="map.name">
+          </p-card>
+        </div>
+
       </div>
     </div>
 

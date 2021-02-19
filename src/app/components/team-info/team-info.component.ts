@@ -12,8 +12,6 @@ export class TeamInfoComponent implements OnInit {
 
   @Input() team: TeamModel;
 
-  selectedMaps: MapModel[] = [];
-
   constructor() { }
 
   ngOnInit(): void {

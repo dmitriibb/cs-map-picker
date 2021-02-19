@@ -4,11 +4,9 @@
     <img class="teamLogoImg" [src]="team.logo">
   </p-header>
 
-  <div *ngFor="let map of selectedMaps">
+  <div class="mapDiv" *ngFor="let map of team.pickedMaps">
     <p-card [header]="map.name" styleClass="ui-card-shadow">
-      <p-header>
-        <img class="mapLogoImg" [src]="map.logo">
-      </p-header>
+      <img class="map-logo-team-info" [src]="map.logo">
     </p-card>
   </div>
 

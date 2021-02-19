@@ -32,3 +32,6 @@ export const TAB_MAP_PICKER = 'mapPicker';
 export const TEAM_1_LOGO = 'team1Logo';
 export const TEAM_2_LOGO = 'team2Logo';
 
+export const ACTION_PICK = 'Pick';
+export const ACTION_BAN = 'Ban';
+

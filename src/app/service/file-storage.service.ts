@@ -5,14 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class FileStorageService {
 
-  constructor() { }
+  fileMap: Map<string, string>;
 
-  public put(key: string, file: any) {
-    localStorage.setItem(key, file);
+  constructor() {
+    this.fileMap = new Map<string, string>();
   }
 
-  public get(key: string): any {
-    return localStorage.getItem(key);
+  public put(key: string, file: any) {
+    this.fileMap.set(key, file);
+  }
+
+  public get(key: string): string {
+    return this.fileMap.get(key);
   }
 
 }

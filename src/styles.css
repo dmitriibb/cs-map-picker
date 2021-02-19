@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-color: brown;
+  margin: 0;
+  min-height: 100vh;
+}
 .teamLogoImg{
   width: 200px;
   height: 200px;
@@ -7,14 +12,7 @@
   margin-right: auto;
   object-fit: contain;
 }
-.mapLogoImg{
-  width: 300px;
-  height: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 
-}
 
 .image-upload-maps {
   display: inline-block;
@@ -27,4 +25,5 @@
 .image-upload-team>input {
   display: none;
 }
+
 

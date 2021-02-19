@@ -1,5 +1,5 @@
 #app {
   margin: 0;
-  background-color: dimgray;
-  height: 800px;
+  background: linear-gradient(to top left, #6e2f2f, #e5cd11);
+  min-height: 100vh;
 }
