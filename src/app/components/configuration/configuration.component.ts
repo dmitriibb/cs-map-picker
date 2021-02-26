@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {
   BEST_OF_1,
   BEST_OF_LIST,
-  MAP_LIST,
-  MAP_LOGO_PLACEHOLDER,
   TEAM_1_LOGO,
   TEAM_2_LOGO,
   TEAM_LOGO_PLACEHOLDER
@@ -13,6 +11,14 @@ import {SessionConfig} from '../../model/session.config.model';
 import {TeamModel} from '../../model/team.model';
 import {MapModel} from '../../model/map.model';
 import {FileStorageService} from '../../service/file-storage.service';
+import {
+  ACTIVE_DUTY_MAP_LIST,
+  ACTIVE_DUTY_MAP_POOL, CUSTOM_MAP_POOL, HOSTAGES_MAP_LIST,
+  HOSTAGES_MAP_POOL,
+  MAP_POOL_SET,
+  RESERVE_MAP_LIST,
+  RESERVE_MAP_POOL
+} from '../../core/map-constants';
 
 @Component({
   selector: 'configuration',
@@ -27,8 +33,11 @@ export class ConfigurationComponent implements OnInit {
   team1Logo = TEAM_LOGO_PLACEHOLDER;
   team2Logo = TEAM_LOGO_PLACEHOLDER;
 
-  mapsAll = [];
+  mapsDropdown = [];
   mapsSelected = [];
+  mapPoolDropdown = MAP_POOL_SET;
+  mapPoolSelected = ACTIVE_DUTY_MAP_POOL;
+
 
   bestOfAll = [];
   bestOfSelected = BEST_OF_1;
@@ -43,7 +52,7 @@ export class ConfigurationComponent implements OnInit {
   }
 
   private initMapList() {
-    this.mapsAll = [...MAP_LIST];
+    this.setMapsDropdown(ACTIVE_DUTY_MAP_LIST);
   }
 
   private initBestOfList() {
@@ -87,6 +96,34 @@ export class ConfigurationComponent implements OnInit {
     console.log("eee");
   }
 
+  mapPoolChanged(event) {
+    switch (this.mapPoolSelected) {
+      case ACTIVE_DUTY_MAP_POOL:
+        this.setMapsDropdown(ACTIVE_DUTY_MAP_LIST);
+        break;
+      case RESERVE_MAP_POOL:
+        this.setMapsDropdown(RESERVE_MAP_LIST);
+        break;
+      case HOSTAGES_MAP_POOL:
+        this.setMapsDropdown(HOSTAGES_MAP_LIST);
+        break;
+      case CUSTOM_MAP_POOL:
+        const element = document.getElementById('mapsInput') as HTMLElement;
+        element.click();
+        break;
+    }
+  }
+
+  setMapsDropdown(maps: any[]) {
+    this.mapsSelected = [];
+    this.mapsDropdown = maps.map(map => {
+      const newMap = new MapModel();
+      newMap.name = map.name;
+      newMap.logo = map.logo;
+      return {label: map.name, value: newMap}
+    })
+  }
+
   private readFile(event, callback: Function): any {
     const files = event.files;
     if (!files.length) return;
@@ -105,7 +142,7 @@ export class ConfigurationComponent implements OnInit {
     }
   }
 
-  mapsInput(event) {
+  mapsInputChange(event) {
     this.uploadMapFiles(event);
   }
 
@@ -128,7 +165,7 @@ export class ConfigurationComponent implements OnInit {
 
     }
     this.mapsSelected = [];
-    this.mapsAll = mapList;
+    this.mapsDropdown = mapList;
   }
 
   private truncFileName(fileName: string): string {

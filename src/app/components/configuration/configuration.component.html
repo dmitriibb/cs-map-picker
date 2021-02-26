@@ -23,12 +23,15 @@
 
 <p-card header="Maps" styleClass="ui-card-shadow">
   <div>
-    <p-multiSelect placeholder="maps" [options]="mapsAll" [(ngModel)]="mapsSelected" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
-    <div class="image-upload-maps">
-      <label for="mapsInput">
-        <div class="mapsUploadBtn">upload</div>
-      </label>
-      <input id="mapsInput" type="file" accept="image/*" (change)="mapsInput($event)" multiple>
+    <p-multiSelect placeholder="maps" [options]="mapsDropdown" [(ngModel)]="mapsSelected" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+    <p-dropdown
+      [options]="mapPoolDropdown"
+      [(ngModel)]="mapPoolSelected"
+      [panelStyle]="{minWidth:'12em'}"
+      (onChange)="mapPoolChanged($event)"
+    ></p-dropdown>
+    <div>
+      <input id="mapsInput" class="display-none" #mapsInput type="file" accept="image/*" (change)="mapsInputChange($event)" multiple>
     </div>
   </div>
 </p-card>

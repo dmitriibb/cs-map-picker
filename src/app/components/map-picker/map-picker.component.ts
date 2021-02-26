@@ -100,8 +100,16 @@ export class MapPickerComponent implements OnInit {
   }
 
   private setNextState() {
-    this.setNextTeam();
-    this.setNextAction();
+    if (this.countAvailableMaps() === 1) {
+      this.displayResult();
+    } else {
+      this.setNextTeam();
+      this.setNextAction();
+    }
+  }
+
+  private displayResult() {
+    this.maps = this.maps.filter(map => map.picked);
   }
 
   private setNextAction() {
@@ -126,6 +134,13 @@ export class MapPickerComponent implements OnInit {
       this.currentTeamIndex = 1;
       this.currentTeam = this.teamLeft;
     }
+  }
+
+  private countAvailableMaps(): number {
+    const availableMaps = this.maps.filter(map => !map.picked && !map.banned);
+    if (availableMaps.length === 1)
+      availableMaps[0].picked = true;
+    return availableMaps.length;
   }
 
   placeHolderConfig(): SessionConfig {
